@@ -1,3 +1,5 @@
+'use strict';
+
 function isValidResponse(response) {
     if (spicy === "Y" || spicy === "N" || spicy === "YES" || spicy === "NO") {
         return true;
@@ -24,8 +26,10 @@ else {
 }
 
 let car = prompt("Y/N I own a car.").toUpperCase();
-
-while(!isValidResponse(car)) {
+console.log(car);
+console.log(!isValidResponse(car));
+while(isValidResponse(car) === false) {
+    console.log(car);
     console.log(!isValidResponse(car));
     car = prompt("Y/N I own a car.").toUpperCase();
 }
@@ -39,6 +43,7 @@ else (
 let starWars = prompt("Y/N I am a Star Wars fan.").toUpperCase();
 
 while(!isValidResponse(starWars)) {
+    console.log(starWars);
     console.log(!isValidResponse(starWars));
     starWars = prompt("Y/N I am a Star Wars fan.").toUpperCase();
 }
@@ -52,7 +57,8 @@ else {
 let music = prompt("Y/N I listen to a lot of music.").toUpperCase();
 
 while(!isValidResponse(music)) {
-    console.log(!isValidResponse(music);
+    console.log(music);
+    console.log(!isValidResponse(music));
     music = prompt("Y/N I listen to a lot of music.").toUpperCase();
 }
 
