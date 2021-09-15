@@ -7,7 +7,7 @@ function isValidResponse(response) {
     }
 }
 
-let user = prompt("Hello starnger! What is your name?");
+let user = prompt("Hello stranger! What is your name?");
 
 let spicy = prompt("Y/N Do I like spicy food?").toUpperCase();
 
@@ -58,3 +58,4 @@ if (music === "Y" || music === "YES") {
 else {
     alert('incorrect');
 }
+alert("Thank you for playing " + user + "!");
