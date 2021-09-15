@@ -1,23 +1,30 @@
 'use strict';
 
-function isValidResponse(response) {
-    if (spicy === "Y" || spicy === "N" || spicy === "YES" || spicy === "NO") {
-        return true;
-    }
-    else {
-        return false;
-    }
+let validResponses = ["Y","N","YES","NO"];
+
+//initialize user to a falsey value
+let user ="";
+//coninue prompting the user until they enter a valid name
+while(!user) {
+    user = prompt("Hello stranger! What is your name?");
 }
 
-let user = prompt("Hello stranger! What is your name?");
+//initialize variables for first question
+let spicy = "";
+let spicyFlag = false
 
-let spicy = prompt("Y/N Do I like spicy food?").toUpperCase();
-
-while(!isValidResponse(spicy)) {
-    console.log(!isValidResponse(spicy));
+//input validation loop. While not valid input, prompt user for new input
+do {
     spicy = prompt("Y/N Do I like spicy food?").toUpperCase();
-}
+    //compare input to each valid response
+    for(let i = 0; i < validResponses.length;i++) {
+        if(spicy === validResponses[i]) {
+            spicyFlag = true;
+        }
+    }
+} while(spicyFlag == false);
 
+//check if answer is correct
 if(spicy === "Y" || spicy === "YES") {
     alert("Correct!");
 }
@@ -25,14 +32,22 @@ else {
     alert("Incorrect.");
 }
 
-let car = prompt("Y/N I own a car.").toUpperCase();
-console.log(car);
-console.log(!isValidResponse(car));
-while(isValidResponse(car) === false) {
-    console.log(car);
-    console.log(!isValidResponse(car));
+//initialize variables for second question
+let car = "";
+let carFlag = false;
+
+//input validation loop
+do {
     car = prompt("Y/N I own a car.").toUpperCase();
-}
+    //compare input to each valid response
+    for (let i = 0; i < validResponses.length; i++) {
+        if(car === validResponses[i]) {
+            carFlag = true;
+        }
+    }
+} while (!carFlag);
+
+//check if answer is correct
 if(car === "N" || car === "NO") {
     alert("Correct!");
 }
@@ -40,13 +55,22 @@ else (
     alert("Incorrect.")  
 )
 
-let starWars = prompt("Y/N I am a Star Wars fan.").toUpperCase();
+//initialize variables for third question
+let starWars = "";
+let starWarsFlag = false;
 
-while(!isValidResponse(starWars)) {
-    console.log(starWars);
-    console.log(!isValidResponse(starWars));
+//input validation loop
+do {
     starWars = prompt("Y/N I am a Star Wars fan.").toUpperCase();
-}
+    //compare input to valid responses
+    for(let i = 0; i < validResponses.length; i++) {
+        if(starWars === validResponses[i]) {
+            starWarsFlag = true;
+        }
+    }
+} while (!starWarsFlag);
+
+//check if answer is correct
 if(starWars === "N" || starWars === "NO") {
     alert("Correct!");
 }
@@ -54,18 +78,27 @@ else {
     alert('Incorrect.');
 }
 
-let music = prompt("Y/N I listen to a lot of music.").toUpperCase();
+//initialize variables for fourth question
+let music = "";
+let musicFlag = false;
 
-while(!isValidResponse(music)) {
-    console.log(music);
-    console.log(!isValidResponse(music));
+//input validation loop
+do {
     music = prompt("Y/N I listen to a lot of music.").toUpperCase();
-}
+    for(let i = 0; i < validResponses.length; i++) {
+        if (music === validResponses[i]) {
+            musicFlag = true;
+        }
+    }
+} while (!musicFlag);
 
+//check if answer is correct
 if (music === "Y" || music === "YES") {
     alert('Correct!');
 }
 else {
     alert('incorrect');
 }
+
+//thank user for playing
 alert("Thank you for playing " + user + "!");
