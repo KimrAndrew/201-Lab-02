@@ -31,7 +31,7 @@ if(car === "N" || car === "NO") {
     alert("Correct!");
 }
 else (
-    alert("Incorrect.");
+    alert("Incorrect.")  
 )
 
 let starWars = prompt("Y/N I am a Star Wars fan.").toUpperCase();
