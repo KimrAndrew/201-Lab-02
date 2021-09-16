@@ -1,7 +1,12 @@
 'use strict';
 
 //global variables
-let validResponses = ["Y","N","YES","NO"];
+let validResponses = ["Y","YES","N","NO"];
+
+//https://www.w3schools.com/js/js_array_methods.asp
+let yes = validResponses.slice(0,2);
+let no = validResponses.slice(2);
+
 let score = 0;
 
 function getUser() {
@@ -14,16 +19,81 @@ function getUser() {
     return user;
 }
 
-function main() {
 
+function spicy() {
+    //initialize variables for first question
+let spicy = "";
+let spicyFlag = false
+
+//input validation loop. While not valid input, prompt user for new input
+    do {
+        spicy = prompt("Y/N Do I like spicy food?").toUpperCase();
+        //compare input to each valid response
+        for(let i = 0; i < validResponses.length;i++) {
+            if(spicy === validResponses[i]) {
+                spicyFlag = true;
+            }
+        }
+    } while(spicyFlag == false);
+
+    //check if answer is correct
+    if(spicy === "Y" || spicy === "YES") {
+        score++;
+        alert("Correct!");
+    }
+    else {
+        alert("Incorrect.");
+    }
+}
+
+//validate user input, return input once valid
+function validateInput(question) {
+    //initialize variables to falsey values
+    let input = "";
+    let inputFlag = false;
+    do {
+        input = prompt(question).toUpperCase();
+        //compare input to each valid response
+        for(let i = 0; i < validResponses.length;i++) {
+            if(input === validResponses[i]) {
+                inputFlag = true;
+            }
+        }
+    } while(inputFlag == false);
+    console.log(input);
+    return input;
+}
+
+//ask a question, increment score if correct
+function askQuestion(question, correctAnswers) {
+    console.log(question);
+    let answer = validateInput(question);
+    if(answer === correctAnswers[0] || answer === correctAnswers[1]) {
+        score++;
+        alert("Correct!");
+    } else {
+        alert("Incorrect.");
+    }
+}
+
+function main() {
+    let user = getUser();
+    askQuestion("Y/N Do I like spicy food?", yes);
+    askQuestion("Y/N I own a car.", no);
+    askQuestion("Y/N I am a Star Wars fan.", no);
+    askQuestion("Y/N I listen to a lot of music.", yes);
+
+    /*
 //initialize user to a falsey value
 let user ="";
 //coninue prompting the user until they enter a valid name
 while(!user) {
     user = prompt("Hello stranger! What is your name?");
 }
+*/
 
 //initialize variables for first question
+/*
 let spicy = "";
 let spicyFlag = false
 
@@ -117,6 +187,7 @@ if (music === "Y" || music === "YES") {
 else {
     alert('incorrect');
 }
+*/
 
 alert('Let\'s play a number guessing game!');
 
@@ -161,5 +232,6 @@ alert("Acceptable answers were: curry, apple crisp, and tacos.");
 
 //thank user for playing
 alert("Thank you for playing " + user + "! Your score was " + score + "!");
+
 }
 main();
