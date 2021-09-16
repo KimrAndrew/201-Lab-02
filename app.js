@@ -1,5 +1,8 @@
 'use strict';
 
+
+function main() {
+
 let validResponses = ["Y","N","YES","NO"];
 let score = 0;
 
@@ -148,3 +151,5 @@ alert("Acceptable answers were: curry, apple crisp, and tacos.");
 
 //thank user for playing
 alert("Thank you for playing " + user + "! Your score was " + score + "!");
+}
+main();
