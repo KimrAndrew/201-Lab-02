@@ -1,6 +1,7 @@
 'use strict';
 
 let validResponses = ["Y","N","YES","NO"];
+let score = 0;
 
 //initialize user to a falsey value
 let user ="";
@@ -26,6 +27,7 @@ do {
 
 //check if answer is correct
 if(spicy === "Y" || spicy === "YES") {
+    score++;
     alert("Correct!");
 }
 else {
@@ -49,6 +51,7 @@ do {
 
 //check if answer is correct
 if(car === "N" || car === "NO") {
+    score++;
     alert("Correct!");
 }
 else (
@@ -72,6 +75,7 @@ do {
 
 //check if answer is correct
 if(starWars === "N" || starWars === "NO") {
+    score++;
     alert("Correct!");
 }
 else {
@@ -94,11 +98,53 @@ do {
 
 //check if answer is correct
 if (music === "Y" || music === "YES") {
+    score++;
     alert('Correct!');
 }
 else {
     alert('incorrect');
 }
 
+alert('Let\'s play a number guessing game!');
+
+let guessesRemaining = 4;
+let guess = -1;
+let correctNum = 3;
+
+while(guessesRemaining > 0) {
+    guess = prompt("Please enter a number between 1 and 10.");
+    if (guess > correctNum) {
+        alert("To high!");
+        guessesRemaining--;
+    }
+    else if (guess == correctNum) {
+        score++;
+        alert("Correct!");
+        break;
+    }
+    else {
+        guessesRemaining--;
+        alert("To Low!");
+    }
+}
+
+let goodFoods = ["curry", "apple crisp", "tacos"];
+let food = "";
+let isCorrect = false;
+let numAttempts = 6;
+do {
+    food = prompt("Name a food that I like").toLowerCase();
+    for(let i = 0; i < goodFoods.length; i++) {
+        if(food === goodFoods[i]) {
+            score++;
+            isCorrect = true;
+            alert("Good guess!");
+        }
+    }
+    numAttempts--;
+} while (isCorrect === false && numAttempts > 0);
+alert("Acceptable answers were: curry, apple crisp, and tacos.");
+
+
 //thank user for playing
-alert("Thank you for playing " + user + "!");
+alert("Thank you for playing " + user + "! Your score was " + score + "!");

@@ -1,0 +1,22 @@
+body {
+    background-color: gray;
+}
+
+p {
+    color: lightblue;
+    font-size: 20px;
+}
+header {
+    text-align: center;
+    border: lightblue solid 3px;
+}
+
+.list-box {
+    display: inline-block;
+    
+}
+
+section {
+    text-align: center;
+    border: lightblue solid 3px;
+}
