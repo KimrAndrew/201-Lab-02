@@ -1,10 +1,20 @@
 'use strict';
 
-
-function main() {
-
+//global variables
 let validResponses = ["Y","N","YES","NO"];
 let score = 0;
+
+function getUser() {
+    //initialize user to a falsey value
+    let user ="";
+    //coninue prompting the user until they enter a valid name
+    while(!user) {
+        user = prompt("Hello stranger! What is your name?");
+    }
+    return user;
+}
+
+function main() {
 
 //initialize user to a falsey value
 let user ="";
